@@ -4,10 +4,8 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
 import ClientsSection from "@components/sections/landing/ClientsSection.astro";
-import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 import FAQ from "@components/sections/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "@images/hero-image.avif";
@@ -24,6 +22,40 @@ const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+// Testimonial data that will be rendered in the component
+const testimonials = [
+  // First testimonial data
+  {
+    content:
+      " \"I worked with Sean on various project involving Marketing Automation strategies, HTML Built, Lead tracking, Forms and database management. He shared meaningful insights and was making the effort to keep up with the latest trends and technologies to guide us towards the best solution. It was easy to communicate with him and he always took the time to explain the technical work when it's needed. Also he's a dog lover, so he's, without a doubt, a great person! \" ",
+    author: "Matthieu Malardé",
+    role: "Senior Marketing Operations | Convera",
+    avatarSrc:
+      "https://media.licdn.com/dms/image/C5603AQGQG-AbB1UbMA/profile-displayphoto-shrink_400_400/0/1517527010652?e=1725494400&v=beta&t=W_L2-Olsx_s4brW1_1gb-4H42UrBCqSnQH-vmWNyGdQ",
+    avatarAlt: "Matthieu Malardé",
+  },
+  // Second testimonial data
+    {
+    content:
+      " \"Sean created a website for me for a personal project. The site was fairly complex, with a gallery and even an e-commerce integration. I provided relatively little in terms of direction (no mockups or anything either) and he was able to fill in all the blanks for me and develop/launch the full site in less than 48 hours. He was also extremely responsive in helping whenever I needed a tweak or bugfix. I will definitely reach back out to Sean next time I have a project! \" ",
+    author: "Matt Woodruff",
+    role: "Co-Founder & Chief Product Officer | Constellation",
+    avatarSrc:
+      "https://media.licdn.com/dms/image/C5603AQGvDJFusYeLhw/profile-displayphoto-shrink_100_100/0/1516341263124?e=1725494400&v=beta&t=_L6ur-7BzmvHn5TpfKAe47cf8AHUsTPRd6YfsqlCujw",
+    avatarAlt: "Matt Woodruff",
+  },
+  // Third testimonial data
+    {
+    content:
+      " \"Sean was incredible to work with when I needed to launch a website with a quick turn around. I had a vision in my head on what I wanted to create and he more than delivered! I highly recommend working with him. He’s creative, attentive to detail, and gets work done in a timely fashion!\" ",
+    author: "Rachel Covello",
+    role: "Publisher | Outcoast",
+    avatarSrc:
+      "https://media.licdn.com/dms/image/D4E03AQFNERc8K7qf7Q/profile-displayphoto-shrink_100_100/0/1718163642617?e=1725494400&v=beta&t=WfuzrewESpMUqZ-nvbY2MLQ9iKKiXvpBHCofbLlVwms",
+    avatarAlt: "Rachel Covello",
+  },
 ];
 ---
 
@@ -56,13 +88,6 @@ const avatarSrcs: Array<string> = [
     subTitle="Experience the reliability chosen by industry giants."
   />
 
-  <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
-    src={featureImage}
-    alt="ScrewFast products in floating boxes"
-    features={features}
-  />
 
   <FeaturesNavs
     title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
@@ -96,50 +121,18 @@ const avatarSrcs: Array<string> = [
     ]}
   />
 
-  <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
-    ;
-    testimonials={[
-      {
-        content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
-    ]}
-    statistics={[
-      {
-        count: "70k+",
-        description:
-          "customers equipped — from DIY to major construction firms",
-      },
-      {
-        count: "35%",
-        description:
-          "uptick in project efficiency with ScrewFast tools and services",
-      },
-      {
-        count: "15.3%",
-        description:
-          "reduction in maintenance costs reported by long-term clients",
-      },
-      {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
-      },
-    ]}
-  />
 
-  <PricingSection pricing={pricing} />
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt
+    title="What Our Customers Say"
+    testimonials={testimonials}
+  />
 
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
     title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
+    subTitle="Get in touch to see how we can grow your business with the right digital strategy."
+    url="/contact"
   />
 </MainLayout>
